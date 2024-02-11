@@ -8,7 +8,7 @@ from streamlit_extras.metric_cards import style_metric_cards
 from streamlit_extras.grid import grid
 
 def build_sidebar():
-    st.image('images\logo.png')
+    st.image('images/logo.png')
     ticker_list = pd.read_csv('tickers_ibra.csv', index_col=0)
     tickers = st.multiselect(label='Selecione as Empresas', options=ticker_list, placeholder='Códigos')
     tickers = [t+'.SA' for t in tickers]
@@ -41,9 +41,9 @@ def build_main(tickers, prices):
         c.subheader(t)
         colA, colB, colC = c.columns(3)
         if t == 'Portfolio':
-            colA.image('images\pie-chart-dollar-svgrepo-com.svg')
+            colA.image('images/pie-chart-dollar-svgrepo-com.svg')
         elif t == 'IBOV':
-            colA.image('images\pie-chart-svgrepo-com.svg')
+            colA.image('images/pie-chart-svgrepo-com.svg')
             
         else:
             colA.image(f'https://raw.githubusercontent.com/thefintz/icones-b3/main/icones/{t}.png', width=60)
@@ -69,7 +69,7 @@ def build_main(tickers, prices):
             color_continuous_scale=px.colors.sequential.Bluered
         )
         fig.update_traces(
-            textfont_color='white', 
+            textfont_color='white',
             marker=dict(size=45),
             textfont_size=10,                  
         )
